@@ -1,6 +1,7 @@
 import type { ExhibitRecord } from '../content/types';
 import { EXHIBIT_IDS } from '../content/types';
 import { collectionHref, exhibitHref } from '../navigation/pages';
+import { MANUAL_SCENE_QUERY } from '../exhibit/scene-layout';
 import type { FinaleSection, FinaleSectionOptions, FinaleState } from './types';
 import './finale.css';
 
@@ -51,7 +52,7 @@ export function createFinaleSection(record: ExhibitRecord, options: FinaleSectio
   const phase = get<HTMLElement>('.finale-phase'), bar = get<HTMLElement>('.finale-progress i'), hint = get<HTMLElement>('.finale-hint'), status = get<HTMLElement>('.finale-status');
   const repeat = get<HTMLButtonElement>('.finale-repeat'), skip = get<HTMLButtonElement>('.finale-skip'), retry = get<HTMLButtonElement>('.finale-retry');
   const manualButtons = [...element.querySelectorAll<HTMLButtonElement>('[data-finale-progress]')];
-  const motion = matchMedia('(prefers-reduced-motion: reduce)'), short = matchMedia('(max-height:799px)');
+  const motion = matchMedia('(prefers-reduced-motion: reduce)'), short = matchMedia(MANUAL_SCENE_QUERY);
   const reduced = (): boolean => options.reducedMotion ?? motion.matches;
   let state: FinaleState = 'idle', progress = 0, disposed = false, activated = false, near = false, front = false, bindRevision = 0;
   let unbind: (() => void) | undefined;
@@ -103,7 +104,7 @@ export function createFinaleSection(record: ExhibitRecord, options: FinaleSectio
     if (short.matches) { applyProgress(progress); return; }
     void import('../exhibit/scroll').then(module => {
       if (disposed || revision !== bindRevision || fallback() || short.matches) return;
-      unbind = module.bindExhibitScroll({ element: scroll, onProgress: applyProgress, reducedMotion: false });
+      unbind = module.bindExhibitScroll({ element: scroll, stage, onProgress: applyProgress, reducedMotion: false });
     });
   }
   function seek(value: number): void {

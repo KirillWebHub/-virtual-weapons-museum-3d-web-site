@@ -1,5 +1,6 @@
 import type { ChapterContent } from './chapter';
 import { chapterState } from './chapter-state';
+import { MANUAL_SCENE_QUERY } from './scene-layout';
 import { visibleAnnotations } from './annotations';
 import { bindInspection } from './inspection';
 import type { ProjectedAnnotation } from './annotations';
@@ -34,8 +35,8 @@ export function createReferenceSection(content: ChapterContent, onReopen: () => 
   let scene: ExhibitScene | undefined, progress = 0, phase = -1, selected: string | undefined;
   let ready = false, compact = false, unbind: (() => void) | undefined;
   let bindScroll: typeof import('./scroll').bindExhibitScroll | undefined;
-  const shortWindow = matchMedia('(max-height:799px)');
-  const summaryText = (): string => shortWindow.matches ? 'На невысоком экране выбирайте состояние кнопками. Номер или название открывает группу крупно с собственной карточкой.' : 'Прокрутка разносит все доступные группы одновременно и возвращает их на место. Выберите номер или название — группа появится крупно с собственной карточкой.';
+  const shortWindow = matchMedia(MANUAL_SCENE_QUERY);
+  const summaryText = (): string => shortWindow.matches || reduced() ? 'Выбирайте состояние кнопками. Номер или название открывает группу крупно с собственной карточкой.' : 'Листайте вниз — группы расходятся и снова собираются. Нажмите номер или выберите группу, чтобы рассмотреть её.';
   const media = matchMedia('(prefers-reduced-motion: reduce)'), reduced = (): boolean => reducedMotion ?? media.matches;
   const markers = referenceCards.map((card, index) => {
     const option = document.createElement('option'); option.value = card.id; option.textContent = `${String(index + 1).padStart(2, '0')} / ${card.title}`; select.append(option);
@@ -68,7 +69,7 @@ export function createReferenceSection(content: ChapterContent, onReopen: () => 
     scene?.setReferenceProgress(progress);
   }
   const stepButtons = [...element.querySelectorAll<HTMLButtonElement>('[data-progress]')];
-  function rebind(): void { unbind?.(); unbind = undefined; scroll.classList.toggle('is-static', compact || reduced() || shortWindow.matches); if (!selected) get('.reference-card-text').textContent = summaryText(); if (ready && bindScroll && !shortWindow.matches) unbind = bindScroll({ element: scroll, onProgress: applyProgress, reducedMotion: reduced() }); }
+  function rebind(): void { unbind?.(); unbind = undefined; scroll.classList.toggle('is-static', compact || reduced() || shortWindow.matches); if (!selected) get('.reference-card-text').textContent = summaryText(); if (ready && bindScroll && !shortWindow.matches) unbind = bindScroll({ element: scroll, stage, onProgress: applyProgress, reducedMotion: reduced() }); }
   function setState(state: ExhibitSceneState | { type: 'closed' }): void {
     ready = state.type === 'ready'; compact = state.type === 'closed' || state.type === 'error'; element.dataset['state'] = state.type; status.hidden = ready; retry.hidden = state.type === 'loading' || ready;
     turn.disabled = !ready; host.setAttribute('aria-disabled', String(!ready)); host.tabIndex = selected && ready ? 0 : -1;

@@ -1,6 +1,6 @@
 .finale-section{position:relative;z-index:2;max-width:1800px;margin:auto;border-top:1px solid var(--color-line)}
 .finale-scroll{height:320svh;min-height:2560px}
-.finale-stage{position:sticky;top:0;height:100svh;min-height:800px;display:grid;grid-template-rows:minmax(0,1fr) auto;overflow:hidden}
+.finale-stage{position:sticky;top:0;height:100svh;min-height:0;display:grid;grid-template-rows:minmax(0,1fr) auto;overflow:hidden}
 .finale-artboard{position:relative;min-height:0;overflow:hidden}
 .finale-visual{position:absolute;inset:0;pointer-events:none}
 .finale-eyebrow{font:500 12px/1.4 var(--font-label);letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent);margin:0 0 16px}
@@ -67,3 +67,25 @@
 }
 @media(max-width:360px){.finale-copy h2{font-size:35px}.finale-copy>p:not(.finale-card-kicker){font-size:11px}.finale-card-kicker{font-size:9px}.finale-links{gap:0 18px;margin-top:12px}.finale-links a{font-size:12px}.finale-control-row{gap:12px}.finale-phase{max-width:100px}.finale-stamp{top:5%}}
 @media(prefers-reduced-motion:reduce){.finale-trail,.finale-atmosphere,.finale-hit,.finale-flash{display:none}}
+
+/* Keep the complete final card inside the phone's available artboard. */
+@media(max-width:900px) and (max-height:799px){
+ .finale-copy,.finale-section.is-fallback .finale-copy{top:auto;bottom:22px;transform:none}
+ .finale-copy h2{font-size:34px}
+ .finale-card-kicker{margin-bottom:14px}
+ .finale-card-rule{margin:16px 0}
+ .finale-links{margin-top:12px;gap:0 18px}
+ .finale-stamp{top:18px;padding:8px 12px}
+ .finale-intro,.finale-flight-caption{top:22px}
+}
+@media(min-width:901px) and (max-height:799px){
+ .finale-copy{top:auto;bottom:24px;transform:none}
+ .finale-copy h2{font-size:34px}
+ .finale-card-kicker{font-size:10px;margin-bottom:12px}
+ .finale-card-rule{margin:16px 0}
+ .finale-copy>p:not(.finale-card-kicker){font-size:12px;line-height:1.8}
+ .finale-links{margin-top:12px;gap:0 18px}
+ .finale-stamp{top:18px;padding:7px 12px}
+ .finale-stamp strong{font-size:20px}
+ .finale-stamp span{font-size:8px}
+}
