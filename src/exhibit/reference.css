@@ -1,0 +1,107 @@
+.reference-section{position:relative}
+.reference-scroll{height:350svh;min-height:2600px}
+.reference-stage{position:sticky;top:0;height:100svh;min-height:800px;max-width:1800px;margin:auto;z-index:2}
+.reference-heading{position:absolute;left:6.5%;top:5.5%;pointer-events:none}
+.reference-heading .exhibit-kicker{margin-bottom:16px}
+.reference-heading h1{font:400 112px/.94 var(--font-heading);letter-spacing:0;margin:0}
+.reference-heading h1 span{display:block;font-size:42px;font-weight:400;line-height:1.1;margin-top:8px;text-transform:uppercase}
+.reference-heading>p:last-child{font-size:13px;line-height:1.8;color:var(--color-muted);margin:14px 0 0}
+.reference-visual{position:absolute;left:2%;top:31%;width:70%;height:53%;overflow:hidden;touch-action:pan-y}
+.reference-visual.is-selected{cursor:grab}
+.reference-visual.is-dragging{cursor:grabbing}
+.reference-visual:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}
+.reference-marker{position:absolute;left:0;top:0;width:44px;height:44px;border:0;background:none;color:var(--color-text);font:500 11px/1 var(--font-label);padding:0;cursor:pointer;z-index:5}
+.reference-marker::before{content:'';position:absolute;inset:12px;border-radius:50%;border:1px solid var(--color-line);background:#292a26;z-index:-1}
+.reference-marker:hover::before{background:var(--color-brand);border-color:var(--color-brand)}
+.reference-marker[hidden]{display:none}
+.reference-panel{position:absolute;right:6.5%;top:27%;width:300px;max-width:27%}
+.reference-card-number{font:500 12px/1.3 var(--font-label);color:var(--color-accent);margin:24px 0 12px}
+.reference-part-title{font:400 36px/1.08 var(--font-heading);text-transform:uppercase;margin:0 0 16px}
+.reference-card-text{font-size:13px;line-height:1.75;color:var(--color-muted);margin:0}
+.reference-card-kind,.reference-descriptive{font-size:11px;color:var(--color-accent);margin:10px 0 0}
+.reference-card-kind:empty{display:none}
+.reference-paging{display:grid;grid-template-columns:44px 1fr 44px;gap:8px;margin-top:10px}
+.reference-paging button,.reference-message button{font:500 13px/1.3 var(--font-label);text-transform:uppercase;min-height:44px;border:1px solid var(--color-line);background:none;color:var(--color-text);padding:8px;cursor:pointer}
+.reference-rotate-help{font-size:10px;line-height:1.8;color:var(--color-dim);margin:16px 0 0}
+.reference-rotate-help[hidden]{display:none}
+.reference-steps{position:absolute;left:6.5%;right:6.5%;bottom:8%;display:flex;gap:30px;border-bottom:1px solid var(--color-line)}
+.reference-steps button{font:500 15px/1.3 var(--font-label);text-transform:uppercase;min-height:44px;border:0;border-bottom:2px solid transparent;background:none;color:var(--color-muted);padding:0 0 12px;margin-bottom:-1px;cursor:pointer}
+.reference-steps button[aria-pressed=true]{color:var(--color-text);border-color:var(--color-accent)}
+.reference-note{position:absolute;left:6.5%;bottom:3.5%;margin:0;font-size:10px;color:var(--color-dim)}
+.reference-message{position:absolute;left:6.5%;width:56%;top:51%;text-align:center;font-size:12px;color:var(--color-muted)}
+.reference-message[hidden],.reference-message button[hidden]{display:none}
+.reference-scroll.is-static{height:auto;min-height:0}
+.reference-scroll.is-static .reference-stage{position:relative}
+.reference-caption,.reference-catalog{position:relative;z-index:2;max-width:1440px;margin:auto;padding:32px 6.5%;background:var(--color-surface-deep)}
+.reference-caption{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;border-top:1px solid var(--color-line)}
+.reference-caption p{font-size:12px;line-height:1.9;color:var(--color-muted);margin:0}
+.reference-catalog{padding-top:8px;padding-bottom:45px}
+.reference-catalog summary{font:500 19px/1.5 var(--font-label);text-transform:uppercase;min-height:44px;padding:8px 0;cursor:pointer}
+.reference-catalog summary:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}
+.reference-catalog ol{margin:30px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 50px}
+.reference-catalog li{padding:24px 0;border-top:1px solid var(--color-line)}
+.reference-catalog h3{font:400 26px/1.2 var(--font-heading);text-transform:uppercase;margin:0 0 14px}
+.reference-catalog li>p:not(.reference-descriptive){font-size:13px;line-height:1.9;color:var(--color-muted);margin:0}
+.reference-catalog li>button{font:500 14px/1.5 var(--font-label);text-transform:uppercase;min-height:44px;padding:8px 0;border:0;background:none;color:var(--color-accent);cursor:pointer}
+@media(max-width:1000px) and (min-width:701px){.reference-panel{width:225px;max-width:30%;right:5%}.reference-visual{width:63%;left:0}.reference-part-title{font-size:28px}.reference-card-text{font-size:12.5px}}
+@media(max-width:700px){
+ .reference-scroll{height:350svh;min-height:2600px}
+ .reference-stage{min-height:800px}
+ .reference-heading{left:24px;right:24px;top:3%}
+ .reference-heading .exhibit-kicker{font-size:10px;margin-bottom:12px}
+ .reference-heading h1{font-size:72px}
+ .reference-heading h1 span{font-size:24px;margin-top:6px}
+ .reference-heading>p:last-child{font-size:11px;line-height:1.6;margin-top:12px}
+ .reference-visual{left:0;top:24%;width:100%;height:28%}
+ .reference-panel{left:24px;right:24px;top:52%;width:auto;max-width:none}
+ .reference-card-number{font-size:10px;line-height:1.2;margin:12px 0 8px}
+ .reference-part-title{font-size:28px;line-height:1.08;margin-bottom:8px}
+ .reference-card-text{font-size:12px;line-height:1.65}
+ .reference-card-kind{font-size:10px;margin-top:6px}
+ .reference-paging{margin-top:8px;gap:8px}
+ .reference-paging button{font-size:12px}
+ .reference-rotate-help{display:none}
+ .reference-steps{left:24px;right:24px;bottom:7%;gap:0;justify-content:space-between}
+ .reference-steps button{font-size:12px;padding-bottom:10px}
+ .reference-note{left:24px;right:24px;bottom:2.5%;font-size:10px}
+ .reference-section[data-selected]:not([data-selected=""]) .reference-steps,.reference-section[data-selected]:not([data-selected=""]) .reference-note{display:none}
+ .reference-message{left:24px;top:33%;width:calc(100% - 48px);font-size:11px}
+ .reference-scroll.is-static{height:auto;min-height:0}
+ .reference-caption,.reference-catalog{padding:24px}
+ .reference-caption{display:block}
+ .reference-caption p{font-size:11px;line-height:1.85}
+ .reference-caption p+p{margin-top:16px}
+ .reference-catalog{padding-top:0;padding-bottom:36px}
+ .reference-catalog summary{font-size:17px}
+ .reference-catalog ol{display:block;margin-top:20px}
+ .reference-catalog h3{font-size:23px}
+ .reference-catalog li>p:not(.reference-descriptive){font-size:12px}
+}
+
+.reference-turn{position:absolute;right:12px;bottom:12px;z-index:7;width:44px;height:44px;border:1px solid var(--color-line);background:#292a26df;color:var(--color-text);font-size:25px;cursor:pointer}
+.reference-turn[hidden]{display:none}
+
+.reference-heading .exhibit-kicker{border-left:3px solid var(--color-brand);padding-left:10px}
+
+/* Short windows and landscape phones use document flow, so controls remain reachable. */
+@media(max-height:799px){
+ .reference-scroll{height:auto;min-height:0}
+ .reference-stage{position:relative;display:flex;flex-direction:column;height:auto;min-height:0;padding:20px 24px 28px}
+ .reference-stage .exhibit-current-actions{position:relative;top:auto;right:auto;order:-1;align-self:flex-end;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+ .reference-heading{position:relative;left:auto;right:auto;top:auto}
+ .reference-heading h1{font-size:64px}
+ .reference-heading h1 span{font-size:24px}
+ .reference-visual{position:relative;left:auto;top:auto;width:100%;height:clamp(180px,40svh,280px);flex:none;margin:20px 0}
+ .reference-panel{position:relative;left:auto;right:auto;top:auto;width:100%;max-width:none}
+ .reference-message{position:relative;left:auto;top:auto;width:100%;margin:12px 0}
+ .reference-steps{position:relative;left:auto;right:auto;bottom:auto;justify-content:space-between;gap:12px;margin-top:24px;flex-wrap:wrap}
+ .reference-note{position:relative;left:auto;right:auto;bottom:auto;margin-top:14px}
+}
+
+/* A close-up is a reading state; the full tour controls return with “Вся схема”. */
+.reference-section[data-selected]:not([data-selected=""]) .reference-steps,
+.reference-section[data-selected]:not([data-selected=""]) .reference-note{display:none}
+.reference-marker{animation:reference-marker-in .18s ease-out both}
+@keyframes reference-marker-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.reference-marker{animation:none}}
+.reference-scroll.is-static .reference-marker{animation:none}

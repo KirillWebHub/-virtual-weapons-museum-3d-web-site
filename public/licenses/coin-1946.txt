@@ -1,0 +1,11 @@
+Münze der Sowjetunion (1946)
+Author: Igor Denisov / Digor
+Source: https://sketchfab.com/3d-models/munze-der-sowjetunion-1946-9070bd76ed0d482981f10fade794952c
+Author profile: https://sketchfab.com/Digor
+License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+The supplied GLB is distributed unchanged for the noncommercial educational museum.
+Its geometry, materials and textures are preserved. It is shown in a separate
+interactive viewer using display transforms and ordinary scene lighting.
+This is decoration, not an additional exhibit. The author does not endorse this project.

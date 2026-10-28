@@ -1,0 +1,72 @@
+name: Publish museum to GitHub Pages
+
+on:
+  push:
+  workflow_dispatch:
+
+# The build can read sources; only the deploy job receives Pages permissions.
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and verify the museum
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out sources
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Type-check and build the release
+        run: npm run build
+      - name: Verify static pages and resources at root and repository path
+        run: npm run verify:site -- --base-path "/${GITHUB_REPOSITORY#*/}/"
+      - name: Upload the verified Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy the verified release
+    # Branch pushes are checked; only the repository's default branch is published.
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Check out release verification scripts
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Set up Node.js for the public smoke check
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Verify the public release without GitHub authentication
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: node scripts/verify-site.mjs --url "$SITE_URL" --revision "$GITHUB_SHA"

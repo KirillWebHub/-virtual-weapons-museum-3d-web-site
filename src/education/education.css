@@ -1,0 +1,60 @@
+.collection-education-links{display:flex;flex-wrap:wrap;gap:12px 28px;margin:-18px 0 38px}
+.collection-education-links a{display:inline-flex;align-items:center;min-height:44px;font:400 14px/1.4 var(--font-label);text-transform:uppercase;color:var(--color-accent)}
+.education-section{position:relative;z-index:2;max-width:1440px;margin:auto;padding:100px 6.5%;background:var(--color-surface-deep)}
+.education-section:focus{outline:none}
+.education-section header{max-width:1050px}
+.education-kicker{font:500 13px/1.4 var(--font-label);text-transform:uppercase;letter-spacing:.1em;color:var(--color-accent);margin:0 0 26px}
+.education-section h2{font:400 clamp(42px,5vw,70px)/1.1 var(--font-heading);text-transform:uppercase;margin:0}
+.education-lead{max-width:730px;font-size:15px;line-height:1.85;color:var(--color-muted);margin:32px 0 46px}
+.education-outcomes,.education-safety-rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;list-style:none;margin:0;padding:0}
+.education-outcomes li,.education-safety-rules li{border-top:2px solid var(--color-brand);padding-top:20px}
+.education-number{font:500 14px/1.4 var(--font-label);color:var(--color-accent);margin:0 0 18px}
+.education-section h3{font:400 32px/1.15 var(--font-heading);text-transform:uppercase;margin:0 0 20px}
+.education-outcomes li>p:not(.education-number),.education-safety-rules li>p:not(.education-number){font-size:14px;line-height:1.85;color:var(--color-muted);margin:0 0 20px}
+.education-outcomes a{display:inline-flex;align-items:center;min-height:44px;font:400 13px/1.4 var(--font-label);text-transform:uppercase;color:var(--color-accent)}
+.education-scope{font-size:11px;line-height:1.85;color:var(--color-dim);margin:35px 0 0;max-width:860px}
+.museum-safety{background:var(--color-brand);color:var(--color-on-brand)}
+.museum-safety .education-kicker,.museum-safety .education-lead,.museum-safety .education-scope,.museum-safety .education-number,.museum-safety .education-safety-rules li>p:not(.education-number){color:inherit}
+.education-safety-rules li{border-top-color:#fff0cf80}
+.museum-safety>a{display:inline-flex;align-items:center;min-height:44px;margin-top:24px;font-size:12px;text-decoration-color:currentColor}
+.museum-safety .education-scope{margin-top:18px}
+.museum-sources{padding-bottom:38px}
+.education-source-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 44px;margin-bottom:28px}
+.education-source-group,.education-asset-credits{border-top:1px solid var(--color-line)}
+.education-section summary{font:400 21px/1.5 var(--font-label);text-transform:uppercase;cursor:pointer;min-height:52px;padding:16px 10px 16px 0;list-style-position:inside;overflow-wrap:anywhere}
+.education-section summary:focus-visible{outline:2px solid var(--color-accent);outline-offset:4px}
+.education-source-group ul{list-style:none;padding:0 0 10px;margin:0}
+.education-source-group li{padding:0 0 22px}
+.education-source-group li>a{font-size:13px;line-height:1.8;overflow-wrap:anywhere}
+.education-source-publisher{color:var(--color-dim);font-size:10px;line-height:1.7;margin:0 0 5px}
+.education-source-group li>p:not(.education-source-publisher){font-size:11px;line-height:1.8;color:var(--color-muted);margin:8px 0}
+.education-source-group>a,.museum-sources>a{display:inline-flex;align-items:center;min-height:44px;margin-bottom:20px;font:400 13px/1.4 var(--font-label);text-transform:uppercase;color:var(--color-accent)}
+.education-assets{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 44px}
+.education-assets li{border-bottom:1px solid var(--color-line);padding-bottom:22px;min-width:0}
+.education-assets h3{font-size:28px;margin-bottom:14px;overflow-wrap:anywhere}
+.education-assets p,.education-decoration p,.education-asset-credits>p{font-size:11px;line-height:1.85;color:var(--color-muted);margin:12px 0}
+.education-assets a,.education-decoration a,.education-asset-credits>p a{font-size:12px;line-height:1.8;overflow-wrap:anywhere;color:var(--color-accent)}
+.education-decoration{padding:14px 0;border-bottom:1px solid var(--color-line)}
+.education-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--color-line);margin-top:50px;padding-top:25px;font:400 13px/1.5 var(--font-label);text-transform:uppercase;color:var(--color-dim)}
+.education-footer p{margin:0}
+.education-footer a{display:inline-flex;align-items:center;min-height:44px;color:var(--color-text)}
+@media(max-width:900px){.education-outcomes,.education-safety-rules{gap:24px}.education-section h3{font-size:28px}}
+@media(max-width:700px){
+ .collection-education-links{margin:0 0 24px;gap:0 20px}
+ .collection-education-links a{font-size:12px}
+ .education-section{padding:58px 24px}
+ .education-kicker{font-size:11px;margin-bottom:20px}
+ .education-section h2{font-size:38px}
+ .education-lead{font-size:13px;margin:24px 0 32px}
+ .education-outcomes,.education-safety-rules{grid-template-columns:1fr;gap:28px}
+ .education-outcomes li,.education-safety-rules li{padding-top:16px}
+ .education-number{font-size:12px;margin-bottom:12px}
+ .education-section h3{font-size:29px;margin-bottom:14px}
+ .education-outcomes li>p:not(.education-number),.education-safety-rules li>p:not(.education-number){font-size:13px;margin-bottom:12px}
+ .education-scope{font-size:10px;margin-top:24px}
+ .museum-safety>a{font-size:11px}
+ .education-source-groups,.education-assets{grid-template-columns:1fr}
+ .education-section summary{font-size:18px;padding:15px 0}
+ .education-source-group li>a{font-size:12px}
+ .education-footer{font-size:11px;margin-top:35px}
+}

@@ -1,0 +1,29 @@
+@font-face{font-family:'Lozung Caps';src:url('../assets/fonts/lozung-caps.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Morfin Sans';src:url('../assets/fonts/morfin-sans.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:Oswald;src:url('../assets/fonts/oswald.ttf') format('truetype');font-weight:200 700;font-display:swap}
+@font-face{font-family:'Golos Text';src:url('../assets/fonts/golos-text.ttf') format('truetype');font-weight:400 900;font-display:swap}
+:root{
+  color-scheme:dark;
+  --color-background:#333333;
+  --color-surface:#333333;
+  --color-surface-deep:#292823;
+  --color-text:#f1e4c5;
+  --color-muted:#c9bfa9;
+  --color-dim:#b9ad94;
+  --color-accent:#d8b778;
+  --color-brand:#b72b25;
+  --color-on-brand:#fff0cf;
+  --color-line:#8c806b;
+  --font-hero:'Lozung Caps',sans-serif;
+  --font-heading:'Morfin Sans',Oswald,sans-serif;
+  --font-label:Oswald,sans-serif;
+  font-synthesis:none;
+  --font-body:'Golos Text',sans-serif;
+  --space-1:8px;
+  --space-2:16px;
+  --space-3:24px;
+  --space-4:32px;
+  --space-6:48px;
+  --space-8:64px;
+  --content-width:1200px;
+}

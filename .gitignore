@@ -1,0 +1,34 @@
+node_modules/
+dist/
+.vite/
+.vitest/
+coverage/
+*.log
+.DS_Store
+.superpowers/
+
+# Local credentials and editor work files do not belong in the publication source.
+.env
+.env.*
+!.env.example
+
+# Local transfer archives are separate from source control.
+/releases/
+
+# Local planning, prototypes and QA are not publication sources.
+AGENTS.md
+PLAN.md
+docs/
+tickets/
+tests/
+vitest.config.ts
+scripts/qa-network.py
+src/assets/fonts/onest.ttf
+src/assets/fonts/onest-OFL.txt
+3D-models/low-poly_mosin_nagant_189130.glb
+3D-models/akm__free_lowpoly.glb
+
+# Previous inactive prototype stays local.
+src/exhibit/prototype.ts
+src/exhibit/prototype.css
+src/exhibits/akm.ts
